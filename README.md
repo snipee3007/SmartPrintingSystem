@@ -20,6 +20,8 @@
   </p>
 </div>
 
+[![en](https://img.shields.io/badge/lang-en-green.svg)](https://github.com/snipee3007/SmartPrintingSystem/blob/main/README.md)
+[![vn](https://img.shields.io/badge/lang-vn-red.svg)](https://github.com/snipee3007/SmartPrintingSystem/blob/main/README-VN.md)
 
 
 <!-- TABLE OF CONTENTS -->
