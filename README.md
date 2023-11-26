@@ -4,8 +4,6 @@
 <br />
 <div align="center">
   <img src="images/logo.png" alt="Logo" width="80" height="80">
-  
-
   <h3 align="center">Smart Printing System</h3>
 
   <p align="center">
@@ -99,10 +97,13 @@ This repository contains folders:
     - Includes all source code of the project.
 
 ## User Interface 
-We are excited to present the Figma design for our print module MVP, a key component of the Student Smart Printing Service (HCMUT_SSPS). In this design, we've carefully crafted an intuitive user interface that allows students to seamlessly upload documents, choose printers, and specify printing preferences. The design emphasizes user-friendly interactions and clear visual cues, ensuring a smooth and efficient printing experience. We welcome your insights and feedback as we move towards implementing this essential feature. 
+We are excited to present the Figma design for our print module MVP, a key component of the Student Smart Printing Service (HCMUT_SSPS). The design emphasizes user-friendly interactions and clear visual cues, ensuring a smooth and efficient printing experience. We welcome your insights and feedback.
 * [Project user interface][Figma-url]
 
 ## References
+* [Discriminate wireframe, mockup and prototype](https://thinhnotes.com/chuyen-nghe-ba/phan-biet-sketch-wireframe-mockup-va-prototype/)
+* [Use-case Diagram](https://thinhnotes.com/chuyen-nghe-ba/use-case-diagram-va-5-sai-lam-thuong-gap/)
+* [Usability Test](https://www.nngroup.com/articles/usability-testing-101/)
 
 
 
