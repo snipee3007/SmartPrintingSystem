@@ -1,5 +1,5 @@
 <template>
-    <div class="w-screen mr-auto ml-auto bg-gray-100 max-w-6xl">
+    <div class="w-screen h-[500px] mr-auto ml-auto bg-gray-100 max-w-6xl">
         <div class="p-12">
             <fieldset>
                 <legend class="flex items-center mb-2">
@@ -31,7 +31,7 @@
                                         <div class="p-1 overflow-hidden icon-no-spacing">
                                             <div class="flex fp-toolbar">
                                                 <div class="fp-btn-add block float-left mr-1">
-                                                    <button title="Thêm tập tin" class="rounded	bg-gray-300 hover:bg-gray-400">
+                                                    <button title="Thêm tập tin" class="rounded	bg-gray-300 hover:bg-gray-400" @click="openFileExplorer">
                                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="btn btn-second btn-sm w-9 h-9">
                                                             <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
                                                         </svg>
@@ -67,10 +67,10 @@
                                             </span>
                                         </div>
                                     </div>
-                                    <div class="filemanager-container card ">
+                                    <div class="filemanager-container card hover:cursor-pointer" @click="openFileExplorer">
                                         <div class="fm-content-wrapper">
                                             <div class="fp-content"></div>
-                                            <div class="fm-empty-container">
+                                            <div class="fm-empty-container" v-if="!selectedFile">
                                                 <div class="dndupload-message inline text-gray-400">Bạn có thể kéo và thả tập tin vào đây để thêm chúng.<br/>
                                                     <div class="dndupload-arrow flex">
                                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" class="text-3xl w-9 h-9 m-auto">
@@ -79,7 +79,11 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            <div class="selected-file-view" v-else>
+                                                Ban da chon : {{  selectedFile.name }}
+                                            </div>
                                         </div>
+                                        <input type="file" ref="fileInput" class="hidden" @change="handleFileChange" >
                                     </div>
                                 </div>
                             </fieldset>
@@ -87,16 +91,91 @@
                     </div>
                 </div>
             </fieldset>
-            <div class="block">
+            <div class="block mt-4">
                 <div class="flex flex-wrap">
                     <div class="flex pt-1.5 pl-6 w-1/4">
                         
                     </div>
+                    <div class="flex items-start w-3/4">
+                        <div class="w-full">
+                            <div class="flex float-left">
+                                <button type="button" class="btn btn-primary mr-2">Lưu thay đổi</button>
+                                <button type="button" class="btn btn-secondary">Hủy bỏ</button>
+                            </div>
+                            <div class="flex float-right">
+                                <!-- thêm đường dẫn vô printSettingView -->
+                                <a type="button" class="btn btn-primary" href="" style="display: flex !important;">
+                                    In
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 ml-2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M6.72 13.829c-.24.03-.48.062-.72.096m.72-.096a42.415 42.415 0 0110.56 0m-10.56 0L6.34 18m10.94-4.171c.24.03.48.062.72.096m-.72-.096L17.66 18m0 0l.229 2.523a1.125 1.125 0 01-1.12 1.227H7.231c-.662 0-1.18-.568-1.12-1.227L6.34 18m11.318 0h1.091A2.25 2.25 0 0021 15.75V9.456c0-1.081-.768-2.015-1.837-2.175a48.055 48.055 0 00-1.913-.247M6.34 18H5.25A2.25 2.25 0 013 15.75V9.456c0-1.081.768-2.015 1.837-2.175a48.041 48.041 0 011.913-.247m10.5 0a48.536 48.536 0 00-10.5 0m10.5 0V3.375c0-.621-.504-1.125-1.125-1.125h-8.25c-.621 0-1.125.504-1.125 1.125v3.659M18 10.5h.008v.008H18V10.5zm-3 0h.008v.008H15V10.5z" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+
+   
+
+        <div v-show="invalidFileModal" class="modal-overlay" @click="closeModal">
+            <div class="modal-content flex flex-col items-center justify-center" @click.stop>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-16 h-16 mb-2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <p class="mb-4 text-black">Định dạng file không hợp lệ</p>
+                <div class="flex justify-center mt-4">
+                    <button @click="closeModal" class="btn btn-secondary text-black">Xác nhận</button>
+                </div>
+            </div>
+        </div>
+
     </div>
 </template>
+
+<script>
+export default {
+    data() {
+        return {
+            selectedFile: null,
+            invalidFileModal: false,
+        };
+    },
+    methods: {
+        openFileExplorer() {
+            this.$refs.fileInput.click();
+        },
+        handleFileChange(event) {
+            const selectedFiles = event.target.files;
+            if(selectedFiles.length > 0) {
+                console.log(selectedFiles);
+                const file = selectedFiles[0];
+                const validExtensions = ['pptx', 'ppt', 'doc', 'docx', 'xls', 'xlsx', 'csv', 'pdf'];
+
+                // Kiểm tra định dạng file
+                // const fileExtension = file.name.slice((file.name.lastIndexOf(".") - 1 >>> 0) + 2);
+                const fileExtension = file.name.split('.').pop().toLowerCase();
+
+                console.log(fileExtension);
+                if (validExtensions.includes(fileExtension.toLowerCase())) {
+                    this.selectedFile = file;
+                    console.log('selectedFile:', this.selectedFile);
+                } else {
+                // Hiển thị modal khi định dạng không hợp lệ
+                    this.invalidFileModal = true;
+                    this.selectedFile = null;
+                }
+            } else {
+                this.selectedFile = null;
+            }
+        },
+        closeModal() {
+            this.invalidFileModal = false;
+        },
+    },
+};
+</script>
 
 <style scoped>
 fieldset {
@@ -126,8 +205,6 @@ fieldset {
     border-bottom-right-radius: 0;
 }
 
-
-
 .fp-toolbar {
     float: left;
 }
@@ -154,12 +231,18 @@ fieldset {
     border-radius: .5rem;
     transition: color 0.15s ease-in-out,background-color 0.15s ease-in-out,border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out
 }
-/* .btn-second {
+
+.btn-primary {
+    color: #fff;
+    background-color: #0f6cbf;
+    border-color: #0f6cbf;
+}
+
+.btn-secondary {
     color: #1d2125;
     background-color: #ced4da;
     border-color: #ced4da;
-} */
-
+}
 
 
 .btn-group, .btn-group-vertical {
@@ -187,6 +270,10 @@ fieldset {
     overflow: hidden;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
+}
+
+.filemanager-container.hover {
+    cursor: pointer;
 }
 
 .fm-empty-container {
@@ -218,5 +305,25 @@ fieldset {
 
 .form-group {
     margin-bottom: 1rem;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Tạo một lớp overlay với màu đen và độ trong suốt */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+  background-color: #fff; /* Màu nền của modal */
+  padding: 20px;
+  border: 1px solid black;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Hiệu ứng bóng cho modal */
 }
 </style>

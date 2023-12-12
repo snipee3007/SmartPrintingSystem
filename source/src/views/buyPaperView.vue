@@ -1,4 +1,5 @@
 <template>
+
     <div class="w-screen mr-auto ml-auto bg-gray-100 max-w-6xl py-10 px-20">
         <div class="font-bold	">Mua giấy in</div>
         <div class="flex rounded border	border-black border-solid my-10	py-10 px-20 " >
