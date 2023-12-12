@@ -45,7 +45,7 @@
                         Thành tiền
                     </div>
                     <div >
-                        0.00VND
+                        0.00 VND
                     </div>
                 </div>
                 <div class="bg-[#1488DB] text-center text-white px-20 py-2 mt-10 rounded-xl	" 	> 
