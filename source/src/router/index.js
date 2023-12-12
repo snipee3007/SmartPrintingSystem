@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import Homepage from '../views/homePageView.vue'
 import Navigation from '../views/navigation.vue'
 import PrintView from '../views/printView.vue'
 import PrintInfoView from '../views/printInfoView.vue'
@@ -11,13 +12,18 @@ const router = createRouter({
     routes: [
         {
             path: '/',
-            redirect: '/print',
+            redirect: '/home',
         },
         {
             name: 'Navigation',
             path: '/navigation',  
             component: Navigation,
             children: [
+                {
+                    name: 'Home',
+                    path: '/home',
+                    component: Homepage
+                },
                 {
                     name: 'Print',
                     path: '/print',
