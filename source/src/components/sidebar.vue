@@ -1,5 +1,5 @@
 <template>
-    <div class="w-[300px] h-screen">
+    <div class="w-[300px] h-[500px]">
       <!-- Your sidebar content goes here -->
         <div class=" flex flex-col justify-between space-y-[10px] mt-10 ml-2">
             <!-- Sidebar links -->
