@@ -42,7 +42,7 @@
             50
           </div>
           <button
-            class="body-content-1 w-[27%] py-[0.5%] bg-sky-600 text-white ml-[5%] border-black border rounded-xl px-[2%]"
+            class="body-content-2 w-[27%] py-[0.5%] bg-sky-600 ml-[5%] border-black border rounded-xl px-[2%]"
           >
             Mua thêm giấy
           </button>
@@ -55,7 +55,7 @@
             69
           </div>
           <button
-            class="body-content-1 w-[27%] py-[0.5%] bg-sky-600 text-white ml-[5%] border-black border rounded-xl px-[2%]"
+            class="body-content-2 w-[27%] py-[0.5%] bg-sky-600 ml-[5%] border-black border rounded-xl px-[2%]"
           >
             Xem lịch sử in
           </button>
@@ -98,6 +98,14 @@
 }
 .body-content-1 {
   color: #000;
+  font-family: Inter;
+  font-size: 2.5vh;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.body-content-1 {
+  color: #fff;
   font-family: Inter;
   font-size: 2.5vh;
   font-style: normal;
