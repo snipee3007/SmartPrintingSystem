@@ -3,6 +3,7 @@ import Homepage from '../views/homePageView.vue'
 import Navigation from '../views/navigation.vue'
 import PrintView from '../views/printView.vue'
 import PrintInfoView from '../views/printInfoView.vue'
+import PrintSettingsView from '../views/printSettingsView.vue'
 import AnnoucementView from '../views/annoucementView.vue'
 import BuyPaperView from '../views/buyPaperView.vue'
 import PersonalInfoView from '../views/personalInfoView.vue'
@@ -28,6 +29,11 @@ const router = createRouter({
                     name: 'Print',
                     path: '/print',
                     component:PrintView
+                },
+                {
+                    name: 'PrintSettings',
+                    path: '/printSettings',
+                    component:PrintSettingsView
                 },
                 {
                     name: 'PrintInfo',
