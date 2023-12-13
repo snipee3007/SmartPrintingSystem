@@ -79,11 +79,36 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="selected-file-view" v-else>
-                                                Ban da chon : {{  selectedFile.name }}
+                                            <div class="selected-file-view ml-4" v-else>
+                                                <div class="file-logo mb-1">
+                                                    <!-- ppt pptx file -->
+                                                    <span v-if="isPpt(selectedFile.name)" >
+                                                        <img src="../assets/images/icons/ppt_icon.svg" alt="Ppt Icon" />
+                                                    </span>
+                                                    <!-- doc, docx file -->
+                                                    <span v-else-if="isWord(selectedFile.name)">
+                                                        <img src="../assets/images/icons/word_icon.svg" alt="Word Icon" />
+                                                    </span>
+                                                    <!-- xls xlsx file -->
+                                                    <span v-else-if="isXls(selectedFile.name)">
+                                                        <img src="../assets/images/icons/xlsx_icon.svg" alt="Xls Icon" />
+                                                    </span>
+                                                    <!-- csv file -->
+                                                    <span v-else-if="isCSV(selectedFile.name)">
+                                                        <img src="../assets/images/icons/csv_icon.svg" alt="CSV Icon" />
+                                                    </span>
+                                                    <!-- pdf file -->
+                                                    <span v-else-if="isPdf(selectedFile.name)">
+                                                        <img src="../assets/images/icons/PDF_icon.svg" alt="PDF Icon" width="70" height="70"/>
+                                                    </span>
+                                                </div>
+                                                <!-- ten file -->
+                                                <div class="truncate">
+                                                    <span>{{ selectedFile.name.slice(0, 10) + (selectedFile.name.length > 10 ? '...' : '') }}</span>
+                                                </div>
                                             </div>
                                         </div>
-                                        <input type="file" ref="fileInput" class="hidden" @change="handleFileChange" >
+                                        <input type="file" ref="fileInput" class="hidden" @change="handleFileChange" multiple>
                                     </div>
                                 </div>
                             </fieldset>
@@ -100,16 +125,16 @@
                         <div class="w-full">
                             <div class="flex float-left">
                                 <button type="button" class="btn btn-primary mr-2">Lưu thay đổi</button>
-                                <button type="button" class="btn btn-secondary">Hủy bỏ</button>
+                                <button type="button" class="btn btn-secondary" @click="cancelChanges">Hủy bỏ</button>
                             </div>
                             <div class="flex float-right">
                                 <!-- thêm đường dẫn vô printSettingView -->
-                                <a type="button" class="btn btn-primary" href="" style="display: flex !important;">
+                                <button class="btn btn-primary" style="display: flex !important;" @click="openConfirmFile">
                                     In
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 ml-2">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M6.72 13.829c-.24.03-.48.062-.72.096m.72-.096a42.415 42.415 0 0110.56 0m-10.56 0L6.34 18m10.94-4.171c.24.03.48.062.72.096m-.72-.096L17.66 18m0 0l.229 2.523a1.125 1.125 0 01-1.12 1.227H7.231c-.662 0-1.18-.568-1.12-1.227L6.34 18m11.318 0h1.091A2.25 2.25 0 0021 15.75V9.456c0-1.081-.768-2.015-1.837-2.175a48.055 48.055 0 00-1.913-.247M6.34 18H5.25A2.25 2.25 0 013 15.75V9.456c0-1.081.768-2.015 1.837-2.175a48.041 48.041 0 011.913-.247m10.5 0a48.536 48.536 0 00-10.5 0m10.5 0V3.375c0-.621-.504-1.125-1.125-1.125h-8.25c-.621 0-1.125.504-1.125 1.125v3.659M18 10.5h.008v.008H18V10.5zm-3 0h.008v.008H15V10.5z" />
                                     </svg>
-                                </a>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -131,6 +156,23 @@
             </div>
         </div>
 
+        <div v-show="confirmFileModal" class="modal-overlay" @click="closeModal">
+            <div class="modal-content flex flex-col items-center justify-center" @click.stop>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-16 h-16 mb-2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <p class="mb-4 text-black">Xác nhận in các tập tin này?</p>
+                <div class="flex justify-center mt-4">
+                    <button @click="closeConfirmFile" class="btn btn-secondary text-black mr-4">Từ chối</button>
+                    <a type="button" class="btn btn-primary text-black" href="http://localhost:5173/printSettings">Xác nhận</a>
+                </div>
+            </div>
+        </div>
+
+        <div v-show="cancelFileModal">
+
+        </div>
+
     </div>
 </template>
 
@@ -139,7 +181,10 @@ export default {
     data() {
         return {
             selectedFile: null,
+            // selectedFiles: [],
             invalidFileModal: false,
+            confirmFileModal: false,
+
         };
     },
     methods: {
@@ -149,20 +194,16 @@ export default {
         handleFileChange(event) {
             const selectedFiles = event.target.files;
             if(selectedFiles.length > 0) {
-                console.log(selectedFiles);
+                this.selectedFiles =  Array.from(selectedFiles);
+                // console.log(selectedFiles);
                 const file = selectedFiles[0];
                 const validExtensions = ['pptx', 'ppt', 'doc', 'docx', 'xls', 'xlsx', 'csv', 'pdf'];
-
-                // Kiểm tra định dạng file
-                // const fileExtension = file.name.slice((file.name.lastIndexOf(".") - 1 >>> 0) + 2);
                 const fileExtension = file.name.split('.').pop().toLowerCase();
 
-                console.log(fileExtension);
-                if (validExtensions.includes(fileExtension.toLowerCase())) {
+                if (validExtensions.includes(fileExtension)) {
                     this.selectedFile = file;
                     console.log('selectedFile:', this.selectedFile);
                 } else {
-                // Hiển thị modal khi định dạng không hợp lệ
                     this.invalidFileModal = true;
                     this.selectedFile = null;
                 }
@@ -172,6 +213,34 @@ export default {
         },
         closeModal() {
             this.invalidFileModal = false;
+        },
+        cancelChanges() {
+            this.selectedFile = null;
+        },
+        openConfirmFile() {
+            if(this.selectedFile === null) {
+                this.invalidFileModal = true;
+            } else {
+                this.confirmFileModal = true;
+            }
+        },
+        closeConfirmFile() {
+            this.confirmFileModal = false;
+        },
+        isPpt(fileName) {
+            return fileName.toLowerCase().endsWith(".ppt") || fileName.toLowerCase().endsWith(".pptx");
+        },
+        isWord(fileName) {
+            return fileName.toLowerCase().endsWith(".doc") || fileName.toLowerCase().endsWith(".docx");
+        },
+        isXls(fileName) {
+            return fileName.toLowerCase().endsWith(".xls") || fileName.toLowerCase().endsWith(".xlsx");
+        },
+        isCSV(fileName) {
+            return fileName.toLowerCase().endsWith(".csv");
+        },
+        isPdf(fileName) {
+            return fileName.toLowerCase().endsWith(".pdf");
         },
     },
 };
@@ -265,8 +334,8 @@ fieldset {
 }
 
 .filemanager-container {
-    display: flex;
-    align-items: center;
+    justify-content: center;
+    align-items: start;
     overflow: hidden;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
@@ -325,5 +394,11 @@ fieldset {
   border: 1px solid black;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Hiệu ứng bóng cho modal */
+}
+
+.selected-file-view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 </style>

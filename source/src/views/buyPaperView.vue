@@ -20,7 +20,7 @@
                     </div>
                 </div>
             </div>
-            <div class="text-sm  text-sm pt-20 ml-24 w-72">
+            <div class="text-sm pt-20 ml-24 w-72">
                 <div class="text-gray-500">
                     Chi tiết
                 </div>
