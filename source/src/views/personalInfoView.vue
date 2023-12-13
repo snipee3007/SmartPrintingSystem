@@ -104,7 +104,7 @@
   font-weight: 400;
   line-height: normal;
 }
-.body-content-1 {
+.body-content-2 {
   color: #fff;
   font-family: Inter;
   font-size: 2.5vh;
