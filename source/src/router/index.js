@@ -16,18 +16,13 @@ const router = createRouter({
     routes: [
         {
             path: '/',
-            redirect: '/home',
+            redirect: '/print',
         },
         {
             name: 'Navigation',
             path: '/navigation',  
             component: Navigation,
             children: [
-                {
-                    name: 'Home',
-                    path: '/home',
-                    component: Homepage
-                },
                 {
                     name: 'Print',
                     path: '/print',
