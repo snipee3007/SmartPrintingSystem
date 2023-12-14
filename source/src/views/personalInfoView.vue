@@ -41,11 +41,13 @@
           >
             50
           </div>
-          <button
+          <a
+            type="button" 
             class="body-content-2 w-[27%] py-[0.5%] bg-sky-600 ml-[5%] border-black border rounded-xl px-[2%]"
+            href="/buypaper"
           >
             Mua thêm giấy
-          </button>
+          </a>
         </div>
         <div class="flex flex-row flex-wrap mb-[2%] items-center">
           <p class="body-content h-full w-[30%]">Số trang đã in</p>
@@ -54,11 +56,13 @@
           >
             69
           </div>
-          <button
+          <a
+            type="button" 
             class="body-content-2 w-[27%] py-[0.5%] bg-sky-600 ml-[5%] border-black border rounded-xl px-[2%]"
+            href="/printInfo"
           >
             Xem lịch sử in
-          </button>
+          </a>
         </div>
         <div class="flex flex-row flex-wrap mb-[2%] items-center">
           <p class="body-content h-full w-[30%]">Số trang A4</p>
