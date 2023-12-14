@@ -7,19 +7,19 @@
                 <div class = "flex m-6 justify-between">
                     <div class="text-gray-400 pt-2">Số lượng:</div>  
                     <div class = "flex border-black border-solid border rounded">
-                        <div class="text-xl text-center border-black border-solid border-r w-8 px-1 py-1">
+                        <button class="text-xl text-center border-black border-solid border-r w-8 px-1 py-1" @click="subNum">
                             -
-                        </div>
+                        </button>
                         <div class="text-sm text-center border-black border-solid border-r w-12 px-1 py-1 pt-2 ">
-                            
+                            {{ number }}
                         </div>
-                        <div class="text-xl text-center px-1 py-1 w-8 ">
+                        <button class="text-xl text-center border-black border-solid w-8 px-1 py-1" @click="addNum">
                             +
-                        </div>
+                        </button>
                     </div>
                 </div>
             </div>
-            <div class="text-sm  text-sm pt-20 ml-24 w-72">
+            <div class="text-sm pt-20 ml-24 w-72">
                 <div class="text-gray-500">
                     Chi tiết
                 </div>
@@ -28,7 +28,7 @@
                         Tổng cộng
                     </div>
                     <div class="font-bold">
-                        0.00 VND
+                        {{ VND }}
                     </div>
                 </div>
                 <div class="mt-4 text-gray-500 flex justify-between	">
@@ -45,13 +45,38 @@
                         Thành tiền
                     </div>
                     <div >
-                        0.00 VND
+                        {{VND}}
                     </div>
                 </div>
-                <div class="bg-[#1488DB] text-center text-white px-20 py-2 mt-10 rounded-xl	" 	> 
+                <button class="bg-[#1488DB] text-center text-white px-20 py-2 mt-10 rounded-xl	w-72" 	> 
                     Thanh toán
-                </div>
+                </button>
             </div>
         </div>
     </div>
 </template>
+<script>
+export default{
+    data(){
+        return {
+            number: 0,
+            VND: 0
+        }
+    },
+    methods:{
+        subNum(){
+            this.number -- 
+            this.VND -= 1000
+            if(this.number <0) 
+            {
+                this.number = 0;
+                this.VND = 0
+            } 
+        },
+        addNum(){
+            this.number++
+            this.VND += 1000
+        }
+    }
+}
+</script>
