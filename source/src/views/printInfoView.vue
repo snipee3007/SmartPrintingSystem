@@ -1,3 +1,7 @@
+<!-- cái này là thông báo in ấn nha chứ ko phải chỉnh sửa file in -->
+<!-- t copy cái này qua printSettingsView -->
+<!-- muốn coi trang printSettingsView thì cứ vô chỗ in upload đại file nào rồi xác nhận in là nó ra -->
+
 <template>
     <div class="w-screen mr-auto ml-auto bg-gray-100 max-w-6xl">
         <div class = "p-12">
