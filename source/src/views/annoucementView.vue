@@ -6,7 +6,7 @@
             <div class="w-[966px] h-[70px] left-[16px] top-[72px] absolute">
                 <div class="w-6 h-6 left-0 top-[23px] absolute flex-col justify-start items-start inline-flex">
                     <div class="w-[18px] h-[18px] bg-slate-500 bg-opacity-25 rounded-full flex items-center justify-center">
-                        <a href="#"> 
+                        <a href="/emptyAnnoucement"> 
                             <div class="w-[11px] h-8 text-black text-xl font-normal font-['Inter']">
                                 x
                             </div>
@@ -21,7 +21,7 @@
                 </div>
             </div>
             <div class="w-28 h-[26px] left-0 top-0 absolute text-black text-xl font-normal font-['Inter']">Thông báo</div>
-            <a href=#>
+            <a href=/emptyAnnoucement>
                 <div
                     class="w-28 h-[26px] left-[908px] top-0 absolute text-right text-black text-xl font-normal font-['Inter']">
                     Xoá tất cả</div>

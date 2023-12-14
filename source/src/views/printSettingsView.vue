@@ -78,8 +78,8 @@
                         <div class="flex items-center">
                             <img :src="selectedOption2.image" alt="Option Image" class="h-6 w-6 ml-2 mr-2" />
                             <div>
-                                <strong class="text-sm flex block">{{ selectedOption2.label.split('<br>')[0] }}</strong>
-                                <span class="text-sm flex block">{{ selectedOption2.label.split('<br>')[1] }}</span>
+                                <strong class="text-sm flex ">{{ selectedOption2.label.split('<br>')[0] }}</strong>
+                                <span class="text-sm flex">{{ selectedOption2.label.split('<br>')[1] }}</span>
                             </div>
                         </div>
 
@@ -119,8 +119,8 @@
                                 <div class="flex items-center">
                                     <img :src="option2.image" alt="Option Image" class="h-6 w-6 mr-2 " />
                                     <div>
-                                        <strong class="text-sm flex block">{{ option2.label.split('<br>')[0] }}</strong>
-                                        <span class="text-sm flex block">{{ option2.label.split('<br>')[1] }}</span>
+                                        <strong class="text-sm flex">{{ option2.label.split('<br>')[0] }}</strong>
+                                        <span class="text-sm flex">{{ option2.label.split('<br>')[1] }}</span>
                                     </div>
                                 </div>
                             </li>
@@ -155,8 +155,8 @@
                         <div class="flex items-center">
                             <img :src="selectedOption3.image" alt="Option Image" class="h-6 w-6 ml-2 mr-2" />
                             <div>
-                                <strong class="text-sm flex block">{{ selectedOption3.label.split('<br>')[0] }}</strong>
-                                <span class="text-sm flex block">{{ selectedOption3.label.split('<br>')[1] }}</span>
+                                <strong class="text-sm flex">{{ selectedOption3.label.split('<br>')[0] }}</strong>
+                                <span class="text-sm flex">{{ selectedOption3.label.split('<br>')[1] }}</span>
                             </div>
                         </div>
                         <svg
@@ -195,8 +195,8 @@
                                 <div class="flex items-center">
                                     <img :src="option3.image" alt="Option Image" class="h-6 w-6 mr-2 " />
                                     <div>
-                                        <strong class="text-sm flex block">{{ option3.label.split('<br>')[0] }}</strong>
-                                        <span class="text-sm flex block">{{ option3.label.split('<br>')[1] }}</span>
+                                        <strong class="text-sm flex ">{{ option3.label.split('<br>')[0] }}</strong>
+                                        <span class="text-sm flex">{{ option3.label.split('<br>')[1] }}</span>
                                     </div>
                                 </div>
                             </li>
@@ -214,8 +214,8 @@
                         <div class="flex items-center">
                             <img :src="selectedOption4.image" alt="Option Image" class="h-6 w-6 ml-2 mr-2" />
                             <div>
-                                <strong class="text-sm flex block">{{ selectedOption4.label.split('<br>')[0] }}</strong>
-                                <span class="text-sm flex block">{{ selectedOption4.label.split('<br>')[1] }}</span>
+                                <strong class="text-sm flex ">{{ selectedOption4.label.split('<br>')[0] }}</strong>
+                                <span class="text-sm flex">{{ selectedOption4.label.split('<br>')[1] }}</span>
                             </div>
                         </div>
                         <svg
@@ -254,8 +254,8 @@
                                 <div class="flex items-center">
                                     <img :src="option4.image" alt="Option Image" class="h-6 w-6 mr-2 " />
                                     <div>
-                                        <strong class="text-sm flex block">{{ option4.label.split('<br>')[0] }}</strong>
-                                        <span class="text-sm flex block">{{ option4.label.split('<br>')[1] }}</span>
+                                        <strong class="text-sm flex">{{ option4.label.split('<br>')[0] }}</strong>
+                                        <span class="text-sm flex ">{{ option4.label.split('<br>')[1] }}</span>
                                     </div>
                                 </div>
                             </li>
@@ -273,8 +273,8 @@
                         <div class="flex items-center">
                             <img :src="selectedOption5.image" alt="Option Image" class="h-6 w-6 ml-2 mr-2" />
                             <div>
-                                <strong class="text-sm flex block">{{ selectedOption5.label.split('<br>')[0] }}</strong>
-                                <span class="text-sm flex block">{{ selectedOption5.label.split('<br>')[1] }}</span>
+                                <strong class="text-sm flex ">{{ selectedOption5.label.split('<br>')[0] }}</strong>
+                                <span class="text-sm flex ">{{ selectedOption5.label.split('<br>')[1] }}</span>
                             </div>
                         </div>
                         <svg
@@ -313,8 +313,8 @@
                                 <div class="flex items-center">
                                     <img :src="option5.image" alt="Option Image" class="h-6 w-6 mr-2 " />
                                     <div>
-                                        <strong class="text-sm flex block">{{ option5.label.split('<br>')[0] }}</strong>
-                                        <span class="text-sm flex block">{{ option5.label.split('<br>')[1] }}</span>
+                                        <strong class="text-sm flex ">{{ option5.label.split('<br>')[0] }}</strong>
+                                        <span class="text-sm flex ">{{ option5.label.split('<br>')[1] }}</span>
                                     </div>
                                 </div>
                             </li>
