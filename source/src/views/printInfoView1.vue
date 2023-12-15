@@ -22,10 +22,6 @@
                 </div>
             </div>
             <div class=" left-0 top-0 absolute text-black text-xl font-normal font-['Inter']">Trạng thái bài in</div>
-            <!-- <a href=/emptyAnnoucement>
-                <div class="w-[1030px] h-[41px] left-0 top-0 absolute rounded-t-[15px] border border-black bg-slate-500">
-                </div>
-            </a> -->
         </div>
     </div>
 </template>

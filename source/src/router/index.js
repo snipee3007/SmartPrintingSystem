@@ -5,6 +5,7 @@ import PrintView from '../views/printView.vue'
 import PrintInfoView from '../views/printInfoView.vue'
 import PrintInfoView1 from '../views/printInfoView1.vue'
 import PrintInfoView2 from '../views/printInfoView2.vue'
+import PrintInfoView3 from '../views/printInfoView3.vue'
 import PrintSettingsView from '../views/printSettingsView.vue'
 import AnnoucementView from '../views/annoucementView.vue'
 import EmptyAnnoucementView from '../views/emptyAnoucement.vue'
@@ -48,6 +49,11 @@ const router = createRouter({
                     path: '/printInfo2',
                     component:PrintInfoView2
                 },
+                {
+                    name: 'PrintInfo3',
+                    path: '/printInfo3',
+                    component:PrintInfoView3
+                }, 
                 {
                     name: 'Annoucement',
                     path: '/annoucement',

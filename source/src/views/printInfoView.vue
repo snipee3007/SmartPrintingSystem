@@ -15,7 +15,7 @@
                 </div>
                 <div class="w-6 h-6 left-0 top-[295px] absolute flex-col justify-start items-start inline-flex">
                     <div class="w-[18px] h-[18px] bg-slate-500 bg-opacity-25 rounded-full flex items-center justify-center">
-                        <a href="#"> 
+                        <a href="/printInfo3"> 
                             <div class="w-[11px] h-8 text-black text-xl font-normal font-['Inter']">
                                 x
                             </div>
@@ -40,10 +40,6 @@
                 </div>
             </div>
             <div class=" left-0 top-0 absolute text-black text-xl font-normal font-['Inter']">Trạng thái bài in</div>
-            <!-- <a href=/emptyAnnoucement>
-                <div class="w-[1030px] h-[41px] left-0 top-0 absolute rounded-t-[15px] border border-black bg-slate-500">
-                </div>
-            </a> -->
         </div>
     </div>
 </template>
