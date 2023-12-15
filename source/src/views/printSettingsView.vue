@@ -1,21 +1,21 @@
 <template>
     <div class="w-screen mr-auto ml-auto bg-gray-100 max-w-6xl">
-        <div class = "p-12">
-            <div class="flex items-center mr-1">
-                <button class="flex items-center ">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 mr-2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                    </svg>
-                    <h3 class="flex items-strech items-center mb-0 font-semibold text-xl">
-                        Tuỳ chỉnh thông số in
-                    </h3>
-                </button>
-            </div>
-        </div>
         <!--first row-->
         <div class = "flex">
-            <div class = "flex-1  ml-12 relative w-500 h-700">
-                <div class = "flex flex-wrap ">
+            <div class = "flex-1  ml-12 relative w-700 h-700">
+                <div class = "p-6">
+                    <div class="flex items-center mr-1">
+                        <button class="flex items-center ">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3 h-3 mr-2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                            </svg>
+                            <h3 class="flex items-strech items-center mb-0 font-semibold text-xl">
+                                Tuỳ chỉnh thông số in
+                            </h3>   
+                        </button>
+                    </div>
+                </div>
+                <div class = "flex flex-wrap ml-8 ">
                     <div class="flex pt-1.5 pl-6 w-1/4">
                         <p>Tập tin</p>
                     </div>
@@ -52,7 +52,7 @@
                         <ul
                             v-show="isOptionsExpanded"
                             class="flex-1 left-0 right-0 mb-4 bg-white divide-y rounded-lg shadow-lg overflow-hidden absolute"
-                            style="top: 30px; max-height: 200px; overflow-y: auto; max-width: 50%; left: 25%;"
+                            style="top: 107px; max-height: 200px; overflow-y: auto; max-width: 50%; left: 30%; z-index: 2;"
                         >
                             <li
                                 v-for="(option, index) in options"
@@ -68,7 +68,7 @@
 
                 </div>
 
-                <div>
+                <div class="ml-8">
                     <button                         
                         class="option-button bg-white border border-black flex justify-between items-center"
                         @click="isOptionsExpanded2 = !isOptionsExpanded2"
@@ -87,7 +87,7 @@
                             fill="none"
                             viewBox="0 0 24 24"
                             stroke="currentColor"
-                            class="h-3 w-3 transform transition-transform duration-200 ease-in-out"
+                            class="h-3 w-3 transform transition-transform duration-200 ease-in-out mr-1"
                         >
                             <path
                                 stroke-linecap="round"
@@ -108,7 +108,7 @@
                         <ul
                             v-show="isOptionsExpanded2"
                             class="flex-1 left-0 right-0 mb-4 bg-white divide-y rounded-lg shadow-lg overflow-hidden absolute"
-                            style="top: 100px; max-height: 200px; overflow-y: auto; max-width: 56%; left: 4%; "
+                            style="top: 177px; max-height: 200px; overflow-y: auto; max-width: 70%; left: 11%; z-index: 2;"
                         >
                             <li
                                 v-for="(option2, index) in options2"
@@ -130,7 +130,7 @@
 
                 </div>
 
-                <div class = "flex flex-wrap ">
+                <div class = "flex flex-wrap ml-8">
                     <div class="flex pt-1.5 pl-6 w-1/4">
                         <p>Trang:</p>
                     </div>
@@ -145,7 +145,7 @@
                     />
                 </div> 
 
-                <div>
+                <div class = "ml-8">
                     <button                         
                         class="option-button bg-white border border-black flex justify-between items-center"
                         @click="isOptionsExpanded3 = !isOptionsExpanded3"
@@ -163,7 +163,7 @@
                             fill="none"
                             viewBox="0 0 24 24"
                             stroke="currentColor"
-                            class="h-3 w-3 transform transition-transform duration-200 ease-in-out"
+                            class="h-3 w-3 transform transition-transform duration-200 ease-in-out mr-1"
                         >
                             <path
                                 stroke-linecap="round"
@@ -184,7 +184,7 @@
                         <ul
                             v-show="isOptionsExpanded3"
                             class="flex-1 left-0 right-0 mb-4 bg-white divide-y rounded-lg shadow-lg overflow-hidden absolute"
-                            style="top: 202px; max-height: 200px; overflow-y: auto; max-width: 56%; left: 4%; "
+                            style="top: 279px; max-height: 200px; overflow-y: auto; max-width: 70%; left: 11%; z-index: 2;"
                         >
                             <li
                                 v-for="(option3, index) in options3"
@@ -204,7 +204,7 @@
                     </transition>
                 </div>
 
-                <div>
+                <div class = "ml-8">
                     <button                         
                         class="option-button bg-white border border-black  flex justify-between items-center"
                         @click="isOptionsExpanded4 = !isOptionsExpanded4"
@@ -222,7 +222,7 @@
                             fill="none"
                             viewBox="0 0 24 24"
                             stroke="currentColor"
-                            class="h-3 w-3 transform transition-transform duration-200 ease-in-out"
+                            class="h-3 w-3 transform transition-transform duration-200 ease-in-out mr-1"
                         >
                             <path
                                 stroke-linecap="round"
@@ -243,7 +243,7 @@
                         <ul
                             v-show="isOptionsExpanded4"
                             class="flex-1 left-0 right-0 mb-4 bg-white divide-y rounded-lg shadow-lg overflow-hidden absolute"
-                            style="top: 272px; max-height: 200px; overflow-y: auto; max-width: 56%; left: 4%; "
+                            style="top: 349px; max-height: 200px; overflow-y: auto; max-width: 70%; left: 11%; z-index: 2; "
                         >
                             <li
                                 v-for="(option4, index) in options4"
@@ -263,7 +263,7 @@
                     </transition>
                 </div>
 
-                <div>
+                <div class = "ml-8">
                     <button                         
                         class="option-button bg-white border border-black flex justify-between items-center"
                         @click="isOptionsExpanded5 = !isOptionsExpanded5"
@@ -281,7 +281,7 @@
                             fill="none"
                             viewBox="0 0 24 24"
                             stroke="currentColor"
-                            class="h-3 w-3 transform transition-transform duration-200 ease-in-out"
+                            class="h-3 w-3 transform transition-transform duration-200 ease-in-out mr-1"
                         >
                             <path
                                 stroke-linecap="round"
@@ -302,7 +302,7 @@
                         <ul
                             v-show="isOptionsExpanded5"
                             class="flex-1 left-0 right-0 mb-4 bg-white divide-y rounded-lg shadow-lg overflow-hidden absolute"
-                            style="top: 342px; max-height: 200px; overflow-y: auto; max-width: 56%; left: 4%; "
+                            style="top: 419px; max-height: 200px; overflow-y: auto; max-width: 70%; left: 11%; z-index: 2;"
                         >
                             <li
                                 v-for="(option5, index) in options5"
@@ -321,7 +321,7 @@
                         </ul>
                     </transition>
                 </div>
-                <div class = "flex flex-wrap mt-10">
+                <div class = "flex flex-wrap mt-4 ml-9">
                     <div class="flex pl-5 w-1/3">
                         <p>Số lượng bản in:</p>
                     </div>
@@ -337,7 +337,8 @@
                 </div> 
             </div>
             
-            <div class="flex-1 bg-white border-solid border-2 rounded border-black relative overflow-hidden">
+            <div class="flex-1 bg-white border-solid border-2 rounded border-black relative overflow-hidden mx-10 mb-5 mt-5 "
+                 style="max-width: 450px;">
                 
                 <img
                     v-for="(image, index) in slideshowImages"
@@ -349,7 +350,7 @@
                 />
 
                
-                <div class="flex justify-center mt-4">
+                <div class="flex justify-center mt-4 mb-2">
                     <button @click="prevSlide" class="mr-2" style="margin-bottom: 10px;">&lt;</button>
                     <input
                         v-model="pageNumber"
@@ -499,7 +500,8 @@ export default {
     justify-content: center;
     overflow: hidden;
     position: relative;
-    margin-left: 60px;
+    margin-left: 30px;
+    z-index: 1;
 }
 
 .print-button img {
@@ -511,5 +513,6 @@ export default {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    z-index: 1;
 }
 </style>
