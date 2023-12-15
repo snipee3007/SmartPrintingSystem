@@ -24,7 +24,7 @@
             </router-link>  
             <router-link to="/printInfo" 
                 class="mt-15 inline-flex relative items-center py-[10px] px-[10px] w-full text-sm font-medium rounded-md border-gray-200 hover:bg-gray-200 hover:text-gray-800  transition duration-400 ease-in-out"
-                :class="{ active: isActive('/printInfo') || isActive('/printInfo1') || isActive('/printInfo2')}"
+                :class="{ active: isActive('/printInfo') || isActive('/printInfo1') || isActive('/printInfo2') || isActive('/printInfo3')}"
             >
             <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="mr-2 w-[25px] h-[25px]">
                 <path fill-rule="evenodd" d="M3 6a3 3 0 013-3h2.25a3 3 0 013 3v2.25a3 3 0 01-3 3H6a3 3 0 01-3-3V6zm9.75 0a3 3 0 013-3H18a3 3 0 013 3v2.25a3 3 0 01-3 3h-2.25a3 3 0 01-3-3V6zM3 15.75a3 3 0 013-3h2.25a3 3 0 013 3V18a3 3 0 01-3 3H6a3 3 0 01-3-3v-2.25zm9.75 0a3 3 0 013-3H18a3 3 0 013 3V18a3 3 0 01-3 3h-2.25a3 3 0 01-3-3v-2.25z" clip-rule="evenodd" />
@@ -63,7 +63,7 @@
 
                 Thông tin cá nhân
             </router-link>
-            <router-link to="#" 
+            <a href="https://sso.hcmut.edu.vn/cas/login?service=https://e-learning.hcmut.edu.vn/login/index.php?authCAS=CAS"
                 class="mt-15 inline-flex relative items-center py-[10px] px-[10px] w-full text-sm font-medium rounded-md border-gray-200 hover:bg-gray-200 hover:text-gray-800  transition duration-400 ease-in-out"
             >
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="mr-2 w-[25px] h-[25px]">
@@ -71,7 +71,7 @@
             </svg>
 
                 Đăng xuất
-            </router-link>
+            </a>
         </div>
     </div>
   </template>
